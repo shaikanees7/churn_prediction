@@ -1,0 +1,24 @@
+# Python environments
+.venv/
+venv/
+env/
+
+# Python caches and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# ML data and generated artifacts
+data/processed/*.npy
+models/*.pkl
+logs/
+outputs/
+artifacts/
+
+# MLflow local state
+mlruns/
+mlflow.db
+
+# Editor files and install logs
+.vscode/
+pip-install-*.log
