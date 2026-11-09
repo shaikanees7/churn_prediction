@@ -1,0 +1,48 @@
+# Single source of truth for the Churn Prediction MLOps project.
+# All scripts are run from the project root (paths below are relative to it).
+
+project:
+  name: Churn Prediction MLOps
+  dataset: Telco Customer Churn
+
+data:
+  raw_path: data/raw/churn.csv
+  new_data_path: data/raw/new_churn.csv
+  processed_dir: data/processed
+  target_column: Churn
+  id_column: customerID
+
+split:
+  test_size: 0.2
+  random_state: 42
+
+model:
+  n_estimators: 150
+  max_depth: 12
+  random_state: 42
+  class_weight: balanced
+
+mlflow:
+  # A database-backed store is required for the Model Registry when running locally.
+  # In CI, the MLFLOW_TRACKING_URI environment variable (repo secret) overrides this.
+  tracking_uri: sqlite:///mlflow.db
+  experiment_name: churn_prediction_model_training_lab7
+
+registry:
+  model_name: Telco_Churn_Production_Model
+  decision_metric: recall
+
+quality_gate:
+  metric: recall
+  minimum_value: 0.70
+
+lab9:
+  repetitions: 3
+
+paths:
+  preprocessor: models/preprocessor.pkl
+  model: models/churn_model.pkl
+  evaluation_report: reports/evaluation_report.json
+  quality_gate_report: reports/quality_gate_report.json
+  failure_report: reports/failure_report.json
+  inference_output: outputs/inference_predictions.csv

@@ -1,0 +1,24 @@
+# Environments
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.vscode/
+.idea/
+
+# MLflow tracking data and registry database
+mlruns/
+mlflow.db
+mlartifacts/
+
+# Logs and outputs generated at runtime
+logs/*.json
+logs/inference/*.jsonl
+outputs/*
+!outputs/.gitkeep
+
+# Local testing and scratch
+scratch/
