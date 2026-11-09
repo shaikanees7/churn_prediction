@@ -1,5 +1,7 @@
 # Telco Customer Churn Prediction — End-to-End MLOps Platform
 
+[![Python CI](https://github.com/shaikanees7/churn_prediction/actions/workflows/python-ci.yml/badge.svg?branch=project-upload)](https://github.com/shaikanees7/churn_prediction/actions/workflows/python-ci.yml)
+
 An enterprise-grade, end-to-end Machine Learning Operations (MLOps) system for predicting customer churn on the **Telco Customer Churn** dataset. The platform spans the complete machine learning lifecycle: data ingestion with SHA-256 lineage tracking, schema validation via Pandera, reproducible preprocessing with Scikit-learn pipelines, MLflow experiment tracking & model registry, automated model evaluation, strict quality gates, champion/challenger lifecycle promotion, FastAPI containerized serving, Kubernetes deployment, data/prediction/concept drift monitoring, and automated retraining triggers.
 
 ---
@@ -20,7 +22,8 @@ An enterprise-grade, end-to-end Machine Learning Operations (MLOps) system for p
    - [Deploying to Kubernetes](#deploying-to-kubernetes)
    - [Executing Automated Drift & Retraining Workflows](#executing-automated-drift--retraining-workflows)
    - [Running the Test Suites](#running-the-test-suites)
-9. [Reference Results & Metrics](#reference-results--metrics)
+9. [GitHub Actions CI](#github-actions-ci)
+10. [Reference Results & Metrics](#reference-results--metrics)
 
 ---
 
@@ -531,6 +534,12 @@ pytest tests/test_api.py -v
 # Performance benchmarks (latency, repeated consistency, reliability, throughput)
 pytest tests/test_performance.py -v
 ```
+
+### GitHub Actions CI
+
+The **Python CI** workflow runs the API and performance test suites on every push and pull request. It can also be started manually from the [GitHub Actions page](https://github.com/shaikanees7/churn_prediction/actions/workflows/python-ci.yml) using **Run workflow**. Each run checks out the project, installs the API dependencies, runs the tests on Python 3.12, and uploads a JUnit test-results artifact.
+
+The status badge at the top of this README shows the latest run for the `project-upload` branch.
 
 ---
 
